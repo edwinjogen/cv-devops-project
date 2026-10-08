@@ -4,11 +4,12 @@ const tsJestTransformCfg = createDefaultPreset().transform;
 
 /** @type {import("jest").Config} **/
 module.exports = {
-  testEnvironment: "jsdom",
-  transform: {
-    ...tsJestTransformCfg,
-  },
-  moduleNameMapper: {
-      "^@/(.*)$": "<rootDir>/src/$1",
-  }
+    testEnvironment: "jsdom",
+    transform: {
+        ...tsJestTransformCfg,
+    },
+    moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/src/$1",
+        '^lucide-react$': require.resolve('lucide-react'),
+    },
 };
