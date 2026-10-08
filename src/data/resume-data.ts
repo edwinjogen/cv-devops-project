@@ -38,6 +38,12 @@ export const RESUME_DATA: ResumeData = {
       start: "2007",
       end: "2010",
     },
+    {
+        school: "KTH",
+        degree: "Some degree",
+        start: "2022",
+        end: "2027",
+    },
   ],
   work: [
     {
