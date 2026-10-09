@@ -1,44 +1,38 @@
 import { render, screen } from "@testing-library/react";
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom";
+import type { RESUME_DATA } from "@/data/resume-data";
 import { Education } from "./education";
-import { RESUME_DATA } from "@/data/resume-data";
 
-type Education = (typeof RESUME_DATA)["education"][number];
+type EducationItem = (typeof RESUME_DATA)["education"][number];
 
-const educationData: Education[] = [
-    {
-        school: "Some school",
-        degree: "Some degree",
-        start: "2022",
-        end: "2027",
-    },
-]
+const educationData: EducationItem[] = [
+  {
+    school: "Some school",
+    degree: "Some degree",
+    start: "2022",
+    end: "2027",
+  },
+];
 
 describe("Education", () => {
-    test("Test Education heading", () => {
-        render(<Education education={educationData} />);
+  test("Test Education heading", () => {
+    render(<Education education={educationData} />);
 
-        expect(
-            screen.getByRole("heading", { name: "Education" })
-        ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Education" })
+    ).toBeInTheDocument();
+  });
 
-    });
+  test("Test Education data", () => {
+    render(<Education education={educationData} />);
 
-    test("Test Education data", () => {
-        render(<Education education={educationData} />);
+    const education = educationData[0];
+    expect(screen.getByText(education.school)).toBeInTheDocument();
 
-        const education = educationData[0];
-        expect(
-            screen.getByText(education.school)
-        ).toBeInTheDocument();
+    expect(screen.getByText(education.degree)).toBeInTheDocument();
 
-        expect(
-            screen.getByText(education.degree)
-        ).toBeInTheDocument();
-
-        expect(
-            screen.getByText(education.start + " - " + education.end)
-        ).toBeInTheDocument()
-
-    })
-})
+    expect(
+      screen.getByText(`${education.start} - ${education.end}`)
+    ).toBeInTheDocument();
+  });
+});
