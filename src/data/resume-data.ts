@@ -1,7 +1,7 @@
 import type { ResumeData } from "@/lib/types";
 
 export const RESUME_DATA: ResumeData = {
-  name: "John Doe",
+  name: "Jane Doe",
   initials: "JD",
   location: "Anytown, Anycountry",
   locationLink: "",
