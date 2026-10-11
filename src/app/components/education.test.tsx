@@ -32,7 +32,7 @@ describe("Education", () => {
     expect(screen.getByText(education.degree)).toBeInTheDocument();
 
     expect(
-      screen.getByText(`${education.start} - ${education.end}`)
+      screen.getByText(`${education.end} - ${education.start}`)
     ).toBeInTheDocument();
   });
 });
